@@ -1,18 +1,7 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Manrope } from "next/font/google";
+
 import "./globals.css";
-import Link from "next/link";
-
-const archivoBlack = Archivo_Black({
-  subsets: ["latin"],
-  style: "normal",
-  weight: "400",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  style: "normal",
-});
+import Layout from "@/components/Layout";
 
 export const metadata: Metadata = {
   title: "Nahee Pak",
@@ -26,17 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={manrope.className}>
-        <header
-          className={`${archivoBlack.className} flex justify-center items-center min-h-20 text-xl md:text-2xl tracking-tighter`}
-        >
-          <Link href="/nahee-2024/list">NAHEE PAK</Link>
-        </header>
-        {children}
-        <footer className={"text-sm h-96 flex justify-center items-center"}>
-          All rights reserved. ©2024
-        </footer>
-      </body>
+      <Layout>{children}</Layout>
     </html>
   );
 }
