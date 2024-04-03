@@ -4,18 +4,6 @@ import { DETAIL_IMAGE_MAP } from "@/app/02/contents/detail-image-map";
 type Params = {
   [key: string]: string | number | string[] | undefined;
 };
-export function generateStaticParams() {
-  const ids = [];
-
-  for (const key in DETAIL_IMAGE_MAP) {
-    if (DETAIL_IMAGE_MAP.hasOwnProperty(key)) {
-      ids.push({ id: key });
-    }
-  }
-
-  return ids;
-}
-
 export default function Detail({ params }: { params: Params }) {
   const item = DETAIL_IMAGE_MAP[params.id as string];
 
